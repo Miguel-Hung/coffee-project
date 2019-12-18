@@ -2,6 +2,9 @@
 
 let queryRoastSelectionEl = document.getElementById("query-roast-selection");
 let coffeeListContainerEl = document.getElementById("coffee-list-container");
+let coffeeSearchEl = document.getElementById("coffee-query-input");
+
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -21,10 +24,12 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+displayCoffee(coffees, "all");
+
 
 console.log(queryRoastSelectionEl);
 queryRoastSelectionEl.addEventListener("change", function () {
-    console.log(queryRoastSelectionEl.value);
+
     if (queryRoastSelectionEl.value === "light") {
         // show all light roasts
         displayCoffee(coffees, queryRoastSelectionEl.value);
@@ -39,6 +44,36 @@ queryRoastSelectionEl.addEventListener("change", function () {
         displayCoffee(coffees, queryRoastSelectionEl.value);
     }
 });
+
+coffeeSearchEl.addEventListener("keydown", function () {
+    if (coffeeSearchEl.value !== ""){
+        displayCoffeeString(coffees, coffeeSearchEl.value);
+
+    }else{
+        displayCoffee(coffees, "all");
+    }
+
+});
+
+
+
+function displayCoffeeString(coffees, searchString){
+    let htmlString = "";
+
+    htmlString += "<ul>";
+    coffees.forEach(function (coffee) {
+        if (coffee.name.toLowerCase().includes(searchString.toLowerCase())){
+            htmlString += "<li>";
+            htmlString += "<div>" + coffee.name +
+                        "<p>" + coffee.roast + "</p>" + "</div>";
+            htmlString += "</li>";
+        }
+
+    });
+    htmlString += "</ul>";
+    coffeeListContainerEl.innerHTML = htmlString;
+}
+
 
 // display coffee in coffee-list-container based on roast
 function displayCoffee(coffees, roast) {

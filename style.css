@@ -7,3 +7,10 @@ td, th {
     border: 1px solid black;
     padding: 5px 10px;
 }
+
+.button{
+    background-color: #3D8ACB;
+    color: white;
+    border-radius: .4em;
+    width: 100%;
+}
