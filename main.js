@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 let coffeeQuerySelectionEl = document.getElementById("query-roast-selection");
 let coffeeListContainerEl = document.getElementById("coffee-list-container");
 let coffeeSearchEl = document.getElementById("coffee-query-input");
@@ -76,26 +76,25 @@ coffeeAddBtn.addEventListener("click", function (e) {
 
 function displayCoffeeString(coffees, searchString, roast) {
     let htmlString = "";
-    htmlString += "<ul>";
+
     coffees.forEach(function (coffee) {
         if (coffee.roast === roast) {
             // console.log(coffee.name);
             if (coffee.name.toLowerCase().includes(searchString.toLowerCase())) {
-                htmlString += "<li>";
-                htmlString += "<div>" + "<h3>" + coffee.name + "</h3>" +
-                    "<p>" + coffee.roast + "</p>" + "</div>";
-                htmlString += "</li>";
+
+                htmlString += "<div class='d-flex align-items-center coffee-item container'>" + "<h2>" + coffee.name + "</h2>" +
+                    "<p class='my-0'>" + coffee.roast + "</p>" + "</div>";
+
             }
         } else if (roast === "all") {
             if (coffee.name.toLowerCase().includes(searchString.toLowerCase())) {
-                htmlString += "<li>";
-                htmlString += "<div>" + "<h3>" + coffee.name + "</h3>" +
-                    "<p>" + coffee.roast + "</p>" + "</div>";
-                htmlString += "</li>";
+                htmlString += "<div class='d-flex align-items-center coffee-item container'>" + "<h2>" + coffee.name + "</h2>" +
+                    "<p class='my-0'>" + coffee.roast + "</p>" + "</div>";
+
             }
         }
     });
-    htmlString += "</ul>";
+
     console.log(htmlString);
     return htmlString;
 }
@@ -105,21 +104,21 @@ function displayCoffeeString(coffees, searchString, roast) {
 function displayCoffee(coffees, roast) {
     let htmlString = "";
 
-    htmlString += "<ul class='d-flex flex-column'>";
+
     coffees.forEach(function (coffee) {
         if (coffee.roast === roast) {
-            htmlString += "<li>";
-            htmlString += "<div class='d-flex'>" + "<h3>" + coffee.name + "</h3>" +
-                "<p>" + coffee.roast + "</p>" + "</div>";
-            htmlString += "</li>";
-        } else if (roast === "all") {
-            htmlString += "<li class='coffee-item d-flex'>";
-            htmlString += "<div class='d-flex align-items-center'>" + "<h3 class='my-0'>" + coffee.name + "</h3>" +
+
+            htmlString += "<div class='d-flex align-items-center coffee-item container''>" + "<h4>" + coffee.name + "</h4>" +
                 "<p class='my-0'>" + coffee.roast + "</p>" + "</div>";
-            htmlString += "</li>";
+
+        } else if (roast === "all") {
+
+            htmlString += "<div class='d-flex align-items-center coffee-item container'>" + "<h4>" + coffee.name + "</h4>" +
+                "<p class='my-0'>" + coffee.roast + "</p>" + "</div>";
+
         }
     });
-    htmlString += "</ul>";
+
     return htmlString;
 }
 
