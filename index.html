@@ -9,13 +9,12 @@
 </head>
 <body>
 
-<div class="container" id="heading-container">
+<div class="container text-center" id="heading-container">
     <h1>Coffee!</h1>
 </div>
 
-<div class="container" id="main-body-container">
+<div class="container d-flex" id="main-body-container">
     <div class="container" id="coffee-list-container">
-
 
     </div>
     <div class="container" id="form-container">
@@ -25,6 +24,7 @@
                     Roast
                 </label>
                 <select id="query-roast-selection">
+                    <option>all</option>
                     <option>light</option>
                     <option>medium</option>
                     <option>dark</option>
@@ -33,7 +33,7 @@
                     <label for="coffee-query-input">Coffee Name</label>
                     <input type="text" class="form-control" id="coffee-query-input" placeholder="Enter Coffee">
                 </div>
-                <input id="submit" type="submit"/>
+                <input id="query-submit-btn" type="submit"/>
             </form>
         </div>
         <div class="container" id="add-coffee-container">
@@ -51,7 +51,7 @@
                     <label for="coffee-add-input">Coffee Name</label>
                     <input type="text" class="form-control" id="coffee-add-input" placeholder="Enter Coffee">
                 </div>
-                <input id="submit" type="submit"/>
+                <input id="add-submit-btn" type="submit"/>
             </form>
         </div>
     </div>
