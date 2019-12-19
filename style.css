@@ -44,7 +44,30 @@ p {
     animation: .8s fadeIn;
 }
 
+.coffee-img {
 
+    height: 80px;
+    -webkit-animation-name: shake;
+    -webkit-animation-duration: 1000ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    -moz-animation-name: shake;
+    -moz-animation-duration: 1000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+    -ms-animation-name: shake;
+    -ms-animation-duration: 1000ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    animation-name: shake;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
 
 #coffee-list-container {
     min-width: 700px;
@@ -52,10 +75,19 @@ p {
     min-height: 100px;
     max-height: 500px;
     margin-bottom: auto;
+    background-image: url("./img/close-up-of-coffee-cup-on-table-312418.jpg");
+    background-size: 100% auto;
+    background-position: 25% 75%;
+    opacity: .8;
 }
 
 #roast-query-label, #roast-add-label, #coffee-query-label, #coffee-add-label {
     font-weight: bold;
+}
+
+#jumbotron-container {
+
+
 }
 
 @keyframes fadeIn {
@@ -64,5 +96,77 @@ p {
     }
     to {
         opacity: 1;
+    }
+}
+
+@-ms-keyframes shake {
+    0% {
+        -ms-transform: rotate(-20deg);
+    }
+    25% {
+        -ms-transform: rotate(0deg);
+    }
+    50% {
+        -ms-transform: rotate(20deg);
+    }
+    75% {
+        -ms-transform: rotate(0deg);
+    }
+    100% {
+        -ms-transform: rotate(-20deg);
+    }
+}
+
+@-moz-keyframes shake {
+    0% {
+        -moz-transform: rotate(-20deg);
+    }
+    25% {
+        -moz-transform: rotate(0deg);
+    }
+    50% {
+        -moz-transform: rotate(20deg);
+    }
+    75% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(-20deg);
+    }
+}
+
+@-webkit-keyframes shake {
+    0% {
+        -webkit-transform: rotate(-20deg);
+    }
+    25% {
+        -webkit-transform: rotate(0deg);
+    }
+    50% {
+        -webkit-transform: rotate(20deg);
+    }
+    75% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(-20deg);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(-20deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-20deg);
     }
 }

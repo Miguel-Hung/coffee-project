@@ -24,9 +24,9 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
-
-coffees = JSON.parse(window.localStorage.getItem('coffeeArray'));
-// localStorage.clear();
+if (window.localStorage.getItem('coffeeArray') !== null) {
+    coffees = JSON.parse(window.localStorage.getItem('coffeeArray'));
+}
 
 // Display initial coffee list
 coffeeListContainerEl.innerHTML = displayCoffee(coffees, "all");
