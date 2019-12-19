@@ -24,6 +24,10 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+
+coffees = JSON.parse(window.localStorage.getItem('coffeeArray'));
+// localStorage.clear();
+
 // Display initial coffee list
 coffeeListContainerEl.innerHTML = displayCoffee(coffees, "all");
 
@@ -67,6 +71,8 @@ coffeeAddBtn.addEventListener("click", function (e) {
             roast: coffeeAddRoastEl.value
         };
         coffees.push(coffee);
+        window.localStorage.setItem('coffeeArray', JSON.stringify(coffees));
+        console.log(localStorage.getItem('coffeeArray'));
         coffeeListContainerEl.innerHTML = displayCoffee(coffees, "all");
         alert(`Coffee: ${coffee.name}, Roast: ${coffee.roast} is added!`);
     }
@@ -104,40 +110,3 @@ function displayCoffee(coffees, roast) {
     });
     return htmlString;
 }
-
-function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
-
-    return html;
-}
-
-function renderCoffees(coffees) {
-    var html = '';
-    for (var i = 0; i < coffees.length; i++) {
-        html += renderCoffee(coffees[i]);
-    }
-    return html;
-}
-
-function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
-    var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function (coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
-        }
-    });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
-}
-
-var tbody = document.querySelector('#coffees');
-var submitButton = document.querySelector('#query-submit-btn');
-var roastSelection = document.querySelector('#roast-selection');
-
-tbody.innerHTML = renderCoffees(coffees);
-submitButton.addEventListener('click', updateCoffees);
