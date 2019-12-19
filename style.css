@@ -5,6 +5,7 @@
     --main-theme-color: rgba(247, 240, 184, 1.00);
     --second-theme-color: rgba(210, 201, 127, 1.00);
     --third-theme-color: rgba(63, 69, 121, 1.00);
+    --fourth-theme-color: rgba(0,0,0,1);
 
     /*font variables*/
     --girassol-font: 'Girassol', cursive;
@@ -52,8 +53,9 @@ p {
 .coffee-img {
     height: 200px;
     background-color: var(--second-theme-color);
-    border: 2px solid var(--second-theme-color);
+    border: 5px solid var(--second-theme-color);
     border-radius: 50%;
+    border-color: var(--fourth-theme-color);
     -webkit-animation-name: shake;
     -webkit-animation-duration: 1000ms;
     -webkit-animation-iteration-count: infinite;

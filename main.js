@@ -109,4 +109,5 @@ function displayCoffee(coffees, roast) {
         }
     });
     return htmlString;
+
 }
