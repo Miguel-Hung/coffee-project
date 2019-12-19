@@ -47,8 +47,6 @@ coffeeQuerySelectionEl.addEventListener("change", function () {
 // If the user types in a string, it will update the coffee list
 coffeeSearchEl.addEventListener("keyup", function () {
     if (coffeeSearchEl.value !== "") {
-        // console.log(coffeeSearchEl.value);
-        // console.log(coffeeQuerySelectionEl.value);
         coffeeListContainerEl.innerHTML = displayCoffeeString(coffees, coffeeSearchEl.value, coffeeQuerySelectionEl.value);
     } else {
         coffeeListContainerEl.innerHTML = displayCoffee(coffees, coffeeQuerySelectionEl.value);
@@ -76,52 +74,36 @@ coffeeAddBtn.addEventListener("click", function (e) {
 
 function displayCoffeeString(coffees, searchString, roast) {
     let htmlString = "";
-
     coffees.forEach(function (coffee) {
         if (coffee.roast === roast) {
-            // console.log(coffee.name);
             if (coffee.name.toLowerCase().includes(searchString.toLowerCase())) {
-
-                htmlString += "<div class='d-flex align-items-center coffee-item container'>" + "<h2>" + coffee.name + "</h2>" +
-                    "<p class='my-0'>" + coffee.roast + "</p>" + "</div>";
-
+                htmlString += "<div class='d-flex align-items-center coffee-item my-3 mx-3'>" + "<h3 class='mx-2'>" + coffee.name + "</h3>" +
+                    "<p class='my-0 mx-3'>" + coffee.roast + "</p>" + "</div>";
             }
         } else if (roast === "all") {
             if (coffee.name.toLowerCase().includes(searchString.toLowerCase())) {
-                htmlString += "<div class='d-flex align-items-center coffee-item container'>" + "<h2>" + coffee.name + "</h2>" +
-                    "<p class='my-0'>" + coffee.roast + "</p>" + "</div>";
-
+                htmlString += "<div class='d-flex align-items-center coffee-item my-3 mx-3'>" + "<h3 class='mx-2'>" + coffee.name + "</h3>" +
+                    "<p class='my-0 mx-3'>" + coffee.roast + "</p>" + "</div>";
             }
         }
     });
-
-    console.log(htmlString);
     return htmlString;
 }
-
 
 // display coffee in coffee-list-container based on roast
 function displayCoffee(coffees, roast) {
     let htmlString = "";
-
-
     coffees.forEach(function (coffee) {
         if (coffee.roast === roast) {
-
-            htmlString += "<div class='d-flex align-items-center coffee-item container''>" + "<h4>" + coffee.name + "</h4>" +
-                "<p class='my-0'>" + coffee.roast + "</p>" + "</div>";
-
+            htmlString += "<div class='d-flex align-items-center coffee-item my-3 mx-3'>" + "<h3 class='mx-2'>" + coffee.name + "</h3>" +
+                "<p class='my-0 mx-3'>" + coffee.roast + "</p>" + "</div>";
         } else if (roast === "all") {
-
-            htmlString += "<div class='d-flex align-items-center coffee-item container'>" + "<h4>" + coffee.name + "</h4>" +
-                "<p class='my-0'>" + coffee.roast + "</p>" + "</div>";
-
+            htmlString += "<div class='d-flex align-items-center coffee-item my-3 mx-3'>" + "<h3 class='mx-2'>" + coffee.name + "</h3>" +
+                "<p class='my-0 mx-3'>" + coffee.roast + "</p>" + "</div>";
         }
     });
-
     return htmlString;
 }
-
 
 function renderCoffee(coffee) {
     var html = '<tr class="coffee">';
@@ -153,11 +135,9 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-
 var tbody = document.querySelector('#coffees');
 var submitButton = document.querySelector('#query-submit-btn');
 var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
-
 submitButton.addEventListener('click', updateCoffees);
