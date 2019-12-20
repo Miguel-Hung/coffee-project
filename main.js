@@ -24,6 +24,7 @@ var coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+// Retrieves local storage if available
 if (window.localStorage.getItem('coffeeArray') !== null) {
     coffees = JSON.parse(window.localStorage.getItem('coffeeArray'));
 }
